@@ -5,8 +5,10 @@ import { useMutation } from '../useMutation'
 import type {
   MutationFunctionContext,
   MutationKey,
+  MutationObserverResult,
   QueryClient,
 } from '@tanstack/query-core'
+import type { MutationResult } from '../useMutation'
 
 describe('Discriminated union return type', () => {
   it('should have possibly undefined data by default', () => {
@@ -152,5 +154,15 @@ describe('useMutation', () => {
         >()
       },
     })
+  })
+
+  it('should export MutationResult matching MutationObserverResult without mutate/reset', () => {
+    type Expected = Omit<
+      MutationObserverResult<string, Error, number, void>,
+      'mutate' | 'reset'
+    >
+    expectTypeOf<
+      MutationResult<string, Error, number, void>
+    >().toEqualTypeOf<Expected>()
   })
 })
