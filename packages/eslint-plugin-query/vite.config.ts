@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitest/config'
 
-import packageJson from './package.json'
+import packageJson from './package.json' with { type: 'json' }
 
 const config = defineConfig({
   // fix from https://github.com/vitest-dev/vitest/issues/6992#issuecomment-2509408660

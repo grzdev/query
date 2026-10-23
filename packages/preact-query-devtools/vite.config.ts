@@ -1,6 +1,6 @@
 import preact from '@preact/preset-vite'
 import { defineConfig } from 'vitest/config'
-import packageJson from './package.json'
+import packageJson from './package.json' with { type: 'json' }
 import type { UserConfig as ViteUserConfig } from 'vite'
 
 export default defineConfig({

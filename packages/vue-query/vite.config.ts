@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import vue from 'unplugin-vue/vite'
 
-import packageJson from './package.json'
+import packageJson from './package.json' with { type: 'json' }
 
 export default defineConfig({
   plugins: [vue()],
